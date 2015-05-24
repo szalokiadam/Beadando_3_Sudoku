@@ -181,32 +181,8 @@ void SUDOKU::betolt()
 
 void SUDOKU::vizsgal()
 {
-    cout << "START:  \n";
     int sum=0;
     int oke=0;
-    int snovel=0;
-    for(int dy=0; dy<3; dy++)
-    {
-        for(int dx=0; dx<3; dx++)
-        {
-            for(int sy=0; sy<3; sy++)
-            {
-                for(int sx=0; sx<3; sx++)
-                {
-                    s_vek4[sy*3+sx]=s_vek[sy*9+sx+dx*3+dy*27];
-                }
-            }
-            for(int t=0;t<9;t++)
-            {
-                cout << s_vek4[t] << " ";
-                /*if(s_vek4[t]!=" " and s_vek4[t]==s_vek4[dy*3+dx])
-                {
-                    cout << s_vek4[t] << " ";
-                }*/
-            }
-            cout << endl;
-        }
-    }
 
     for(int i=0; i<9; i++)
     {
@@ -236,11 +212,12 @@ void SUDOKU::vizsgal()
     }
     if(oke==81 and aktiv1)
     {
-        //nyertel();
+        gout << move_to(410,320) << color(0,0,0) << text("NYERTEL!");
         cout << "NYERTEL!!! :) \n";
     }
     if(oke<81 and aktiv1)
     {
+        gout << move_to(410,320) << color(0,0,0) << text("NEM JO");
         cout << "VALAHOL HIBA VAN :( \n";
     }
     aktiv1=false;
